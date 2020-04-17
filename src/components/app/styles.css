@@ -8,6 +8,14 @@ body {
 	margin: 40px auto;
 	border-radius: 10px;
 }
+.main header {
+	color: #fff;	
+	text-align: center;
+}
+.main header h1{
+	font-size: 40px;
+	font-weight: bold;
+}
 .toDoForm input {
 	background-color: #fff;
 	border: 0;

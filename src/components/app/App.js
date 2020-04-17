@@ -68,7 +68,9 @@ export default class App extends Component {
 	render() {
 		return(
 			<div className="main">
-				<header>Things todo</header>
+				<header>
+					<h1>Things todo</h1>
+				</header>
 				<form 
 					className="toDoForm"
 					onSubmit={this.addItem}
@@ -87,6 +89,7 @@ export default class App extends Component {
 					setUpdate = {this.setUpdate}>
 				</ListItems>
 			</div>
+		
 		)
 	}
 }
