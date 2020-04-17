@@ -18,6 +18,8 @@ export default class App extends Component {
 		}
 		this.handleInput = this.handleInput.bind(this);
 		this.addItem = this.addItem.bind(this);
+		this.deleteItem = this.deleteItem.bind(this);
+		this.setUpdate = this.setUpdate.bind(this);
 	}
 	handleInput(e) {
 		this.setState({
@@ -33,6 +35,7 @@ export default class App extends Component {
 		const newItem = this.state.currentItem;
 		if (newItem.text !== '') {
 			const newItems = [...this.state.items, newItem];
+			console.log(newItems)
 			this.setState({
 				items: newItems,
 				currentItem: {
@@ -41,6 +44,25 @@ export default class App extends Component {
 				}
 			});
 		}
+	}
+
+	deleteItem(key) {
+		const filteredItems = this.state.items.filter(item => item.key!==key);
+		this.setState({
+			items: filteredItems
+		})
+	}
+
+	setUpdate(text, key) {
+		const items = this.state.items;
+		items.map(item => {
+			if (item.key === key) {
+				item.text = text;
+			}
+		})
+		this.setState({
+			items: items
+		})
 	}
 	
 	render() {
@@ -60,7 +82,9 @@ export default class App extends Component {
 					<button type="submit">Add</button>
 				</form>
 				<ListItems
-					items = {this.state.items}>
+					items = {this.state.items}
+					deleteItem = {this.deleteItem}
+					setUpdate = {this.setUpdate}>
 				</ListItems>
 			</div>
 		)
