@@ -69,7 +69,7 @@ export default class App extends Component {
 		return(
 			<div className="main">
 				<header>
-					<h1>Things todo</h1>
+					<h1>To Do List</h1>
 				</header>
 				<form 
 					className="toDoForm"
